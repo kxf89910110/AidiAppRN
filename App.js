@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -21,19 +21,34 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ViewPager from '@react-native-community/viewpager';
 import Swiper from 'react-native-swiper';
+import articleData from './src/js/article.js';
+import ArticleDetailsScreen from './src/pages/articleDetails.js';
 
-function HomeScreen() {
+function HomeScreen ({ navigation }) {
+  const imageTab = [
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/375x210_08.jpg"},
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/zhongliuzixun.png"},
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/yizhen/375x210_04.jpg "},
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/375x210_06.jpg"},
+  ]
+  
+  const imageHot = [
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/375x210_23.jpg"},
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/375x210_25.jpg"},
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/375x210_31.jpg"},
+    {src: "https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/hualiao.jpg"},
+  ]
   return (
-    <View>
-      <View style={{backgroundColor: '#ffffff'}}>
+    <ScrollView>
+      <View style={{backgroundColor: '#ffffff', paddingBottom: 20}}>
         <View style={styles.header}>
-          <Text>用户名，欢迎您！</Text>
+          <Text style={{color: '#9b9b9b', fontSize: 15}}>用户名，欢迎您！</Text>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text>联系客服</Text>
-            <Ionicons name='ios-contact' size={23} color={'orange'} style={{paddingLeft: 5}} />
+            <Text style={{fontSize: 18}}>联系客服</Text>
+            <Ionicons name='ios-contact' size={25} color={'orange'} style={{paddingLeft: 5}} />
           </View>
         </View>
         <View>
@@ -42,12 +57,68 @@ function HomeScreen() {
             <Text style={{color: '#aaaaaa'}}>搜索症状/疾病/药品/医生/科室</Text>
           </TouchableOpacity>
         </View>
+        <View style={{paddingHorizontal: 33, marginTop: 20}}>
+          <FlatList
+            horizontal={true}
+            data={imageTab}
+            renderItem={({item}) => 
+              <TouchableOpacity style={styles.tabItem}>
+                <Image source={{uri: item.src}} style={{width: 68, height: 68}}/>
+              </TouchableOpacity>}
+          />
+          <Image 
+            source={{uri: 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shouye/guanggao.png'}}
+            style={{width: '100%', height: 50}}
+          />
+        </View>
       </View>
-    </View>
-  );
+
+      <View style={{backgroundColor: '#ffffff', paddingVertical: 10, paddingHorizontal: 25, marginTop: 10}}>
+        <Text style={styles.title}>肿瘤热点精选</Text>
+        <FlatList
+            numColumns={2}
+            data={imageHot}
+            renderItem={({item}) => 
+              <TouchableOpacity style={{margin: 5}}>
+                <Image source={{uri: item.src}} style={{width: 160, height: 90}}/>
+              </TouchableOpacity>}
+          />
+      </View>
+
+      <View style={{backgroundColor: '#ffffff', paddingVertical: 10, paddingHorizontal: 10, marginTop: 10}}>
+        <Text style={styles.title}>推荐阅读</Text>
+        <FlatList
+          data={articleData.list}
+          renderItem={({item}) => 
+            <TouchableOpacity 
+              extralss={({item,index}) => index}
+              style={styles.articleList}
+              onPress={({item,index}) => navigation.navigate('articleDetails', {
+                articleId: index
+              })}
+            >
+              <View style={styles.articleBox}>
+                <Text 
+                  style={styles.articleTitle} 
+                  ellipsizeMode={'tail'}
+                  numberOfLines={2}
+                >
+                  {item.title}
+                </Text>
+                <Image source={{uri: item.img}} style={styles.articleImage} />
+              </View>
+              <View style={styles.articleBox2}>
+                <Text style={{color: '#8C8C8C'}}>{item.author} {item.source}</Text>
+                <Text style={styles.articleTab}>{item.type}</Text>
+              </View>
+            </TouchableOpacity>}
+          />
+      </View>
+    </ScrollView>
+  )
 }
 
-function UserScreen() {
+function UserScreen ({ navigation }) {
   const orderStatus = [
     {
       id: '1',
@@ -107,12 +178,11 @@ function UserScreen() {
                 <Image source={{uri: item.img}} style={{width: 30, height: 30}}/>
                 <Text>{item.status}</Text>
               </View>
-            </TouchableOpacity>
-          }
+            </TouchableOpacity>}
         />
       </View>
     </View>
-  );
+  )
 }
 
 const App: () => React$Node = () => {
@@ -167,6 +237,49 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  tabItem: {
+    marginLeft: 10,
+    marginBottom: 10
+  },
+  title: {
+    fontSize: 17,
+    fontWeight: 'bold'
+  },
+  articleList: {
+    width: '100%',
+    padding: 10,
+    borderBottomColor: '#f0f0f0',
+    borderBottomWidth: 1
+  },
+  articleBox: {
+    width: 350,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  articleBox2: {
+    width: 350,
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  articleTitle: {
+    width: 220,
+    fontSize: 17,
+    marginRight: 10
+  },
+  articleImage: {
+    width: 120, 
+    height: 60,
+    borderRadius: 10
+  },
+  articleTab: {
+    fontSize: 10,
+    padding: 5,
+    textAlign: 'right',
+    color: '#8c8c8c',
+    backgroundColor: '#EBEBEB'
   },
   // user styles
   imageBackground: {
