@@ -88,6 +88,7 @@ export default self => (
       {/* 标签导航 */}
       <View style={{paddingHorizontal: 33, marginTop: 20}}>
         <FlatList
+          keyExtractor={(item, index) => index}
           contentContainerStyle={styles.tabList}
           numColumns={4}
           data={imageTab}
@@ -107,6 +108,7 @@ export default self => (
     <View style={styles.listBox}>
       <Text style={styles.title}>肿瘤热点精选</Text>
       <FlatList
+          keyExtractor={(item, index) => index}
           contentContainerStyle={styles.hotList}
           numColumns={2}
           data={imageHot}
@@ -122,6 +124,7 @@ export default self => (
     <View style={styles.listBox}>
       <Text style={styles.title}>推荐阅读</Text>
       <FlatList
+        keyExtractor={(item, index) => index}
         data={article.list}
         renderItem={({item}) => 
           <TouchableOpacity 

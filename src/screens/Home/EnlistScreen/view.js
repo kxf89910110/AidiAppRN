@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, RefreshControl } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 
@@ -7,17 +7,21 @@ const poster = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resou
 
 export default self => (
     <View>
+        {/* 海报 */}
         <Image source={{uri: poster}} style={styles.poster} />
+        {/* 标签导航 */}
         <FlatList
             showsHorizontalScrollIndicator = {false}
             contentContainerStyle={styles.tabBox}
             horizontal={true}
+            keyExtractor={(item, index) => index}
             data={self.state.tabList}
             renderItem={({item, index}) => 
                 <TouchableOpacity 
                     style={styles.tab}
                     onPress={() => self.changeTab(item.title, index)}>
-                    <Text style={self.state.selected === item.title 
+                    {/* 判断当前选中标签 */}
+                    <Text style={self.state.selected === index 
                         ?styles.active
                         :styles.normal
                     }>
@@ -26,21 +30,36 @@ export default self => (
                 </TouchableOpacity>
             }
         />
+        {/* 招募列表 */}
         <FlatList
-            data={self.state.enlist}
+            refreshControl={
+                <RefreshControl
+                    refreshing={self.state.refreshing}
+                    onRefresh={self._onRefresh}
+                />
+            }
+            keyExtractor={(item, index) => index}
+            data={self.state.showList}
             renderItem={({item}) => 
                 <TouchableOpacity style={styles.card}>
                     <Image source={{uri: item.projectPic}} style={styles.cardImage} />
                     <View style={styles.cardContent}>
                         <Text style={styles.cardTitle}>{item.title}</Text>
-                        {/* <FlatList
-                            data={[1, 2, 3, 4]}
-                            renderItem={({star}) =>
-                                <View style={{flexDirection: 'row'}}>
-                                    <Ionicons name='ios-star' color='gold' size={15} />
-                                </View>
+                        {/* 评分（星级） */}
+                        <FlatList
+                            numColumns={5}
+                            keyExtractor={(item, index) => index}
+                            data={[1, 2, 3, 4, 5]}
+                            renderItem={({index}) =>
+                                <Ionicons 
+                                    name={index+1 > item.stars 
+                                        ?'ios-star-outline'
+                                        :'ios-star'} 
+                                    color='gold' 
+                                    size={15} 
+                                    style={styles.star} />
                             }
-                        /> */}
+                        />
                         <Text 
                             style={styles.cardInfo} 
                             ellipsizeMode={'tail'}

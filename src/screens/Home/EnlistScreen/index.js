@@ -53,12 +53,18 @@ export default class EnlistScreen extends Component {
                 box: []
               }
             ],
-            enlist: []
+            enlist: [],
+            showList: [],
+            refreshing: false
         }
     }
 
-    async componentDidMount() {
-        // 获取招募数据
+    componentDidMount() {
+        this.getEnlist().then(() => this.changeTab('', 0));
+    }
+
+    // 获取招募数据
+    async getEnlist() {
         const REQUEST_URL = 'https://www.aidi-sz.com/';
         try {
             let response = await fetch(
@@ -72,23 +78,34 @@ export default class EnlistScreen extends Component {
                 enlist: responseJson
             });
             return responseJson;
-          } catch (error) {
+        } catch (error) {
             console.error(error);
-          }
-    }
+        }
+    } 
 
     // 改变类目筛选数据
     changeTab(title, e) {
+        let cache = [];
         for (let i of this.state.enlist)
         {
             if (title === i.cate) {
-                this.state.tabList[e].box.push(i);
-            }
-        }
-        console.log(this.state.tabList[e])
+                cache.push(i);
+            };
+        };
         this.setState({
             selected: e,
-        })
+            showList: e === 0 ? this.state.enlist: cache
+        });
+    }
+
+    // 上拉刷新
+    _onRefresh = () => {
+        this.setState({refreshing: true});
+        this.getEnlist();
+        const index = this.state.selected;
+        const title = this.state.tabList[index].title;
+        this.changeTab(title, index);
+        this.setState({refreshing: false});
     }
 
     render() {

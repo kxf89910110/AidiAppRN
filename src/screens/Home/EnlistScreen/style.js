@@ -46,6 +46,9 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontSize: pxToDp(36)
     },
+    star: {
+        marginRight: pxToDp(10)
+    },
     cardInfo: {
         color: '#d7d7d7',
         fontSize: pxToDp(28),
