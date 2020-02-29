@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     searchInput: {
-        marginTop: 15,
+        marginVertical: 15,
         marginHorizontal: 20,
         paddingVertical: 10,
         paddingHorizontal: 20,
@@ -31,6 +31,12 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 17,
         fontWeight: 'bold'
+    },
+    listBox: {
+        backgroundColor: '#ffffff', 
+        paddingVertical: 10, 
+        paddingHorizontal: 10, 
+        marginTop: 10
     },
     hotList: {
         width: '100%',

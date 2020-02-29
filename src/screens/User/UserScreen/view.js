@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ImageBackground } from 'react-native';
+import { View, Text, Image, FlatList, ImageBackground, TouchableOpacity } from 'react-native';
 import styles from './style.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -26,13 +26,15 @@ const orderStatus = [
     },
 ]
 
-export default self => {
+export default self => (
     <View>
        <ImageBackground 
         source={{uri: 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/gerenzhongxin/BG.jpg'}}
         style={styles.imageBackground}
       >
-        <Text style={{color: '#ffffff', fontSize: 25}}>请先登录/注册</Text>
+        <TouchableOpacity onPress={() => self.navigation.navigate('注册')}>
+          <Text style={{color: '#ffffff', fontSize: 25}}>请先登录/注册</Text>
+        </TouchableOpacity>
       </ImageBackground>
       <View style={styles.formTitle}>
         <Text style={styles.formText}>联系我们</Text>
@@ -59,9 +61,9 @@ export default self => {
           data={orderStatus}
           renderItem={({item}) => 
             <TouchableOpacity
-              onPress={({item,index}) => self.navigate('Article', {
-                articleId: index
-              })}
+              // onPress={({item,index}) => self.navigate('Article', {
+              //   articleId: index
+              // })}
             >
               <View style={styles.orderItem}>
                 <Image source={{uri: item.img}} style={{width: 30, height: 30}} />
@@ -71,4 +73,4 @@ export default self => {
         />
       </View>
     </View>
-};
+);

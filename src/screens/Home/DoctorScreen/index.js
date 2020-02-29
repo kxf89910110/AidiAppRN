@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import view from './view.js';
+import view from './view';
 
-export default class HomeScreen extends Component {
-    static navigationOptions = {
-        title: '首页'
-    };
-
+export default class DoctorScreen extends Component {
     constructor(props) {
         super(props);
         this.navigation = props.navigation;
