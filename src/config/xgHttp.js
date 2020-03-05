@@ -1,5 +1,7 @@
 // 服务器host
-const host = "https://www.aidi-sz.com/api/";
+// const host = "https://www.aidi-sz.com/";
+// 本地mock api host
+const host = "http://5e5c75d297d2ea00147968ea.mockapi.io/api/v1/";
 
 export default async function (
     method,

@@ -7,7 +7,7 @@ import { Dimensions, Platform } from 'react-native';
 // app 只有竖屏模式，所以可以只获取一次 width
 const deviceWidthDp = Dimensions.get("window").width;
 // ui图默认给图
-const uiWidthPx = 750;
+const uiWidthPx = 375;
 
 function pxToDp(uiElementPx) {
     const transferNumb = uiElementPx * deviceWidthDp / uiWidthPx;

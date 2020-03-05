@@ -6,6 +6,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 // 引入页面
 import HomeScreen from "../screens/Home/HomeScreen";
 import EnlistScreen from "../screens/Home/EnlistScreen";
+import EnlistDetailsScreen from '../screens/Home/EnlistDetailsScreen';
+import InquiryScreen from '../screens/Home/InquiryScreen';
 import DoctorScreen from "../screens/Home/DoctorScreen";
 import ArticleScreen from "../screens/Home/ArticleScreen";
 
@@ -20,6 +22,8 @@ function HomeStackScreen() {
     <HomeStack.Navigator>
       <HomeStack.Screen name="首页" component={HomeScreen} />
       <HomeStack.Screen name="招募中心" component={EnlistScreen} />
+      <HomeStack.Screen name="招募详情" component={EnlistDetailsScreen} />
+      <HomeStack.Screen name="肿瘤咨询" component={InquiryScreen} />
       <HomeStack.Screen name="名医堂" component={DoctorScreen} />
       <HomeStack.Screen name="文章详情" component={ArticleScreen} />
     </HomeStack.Navigator>

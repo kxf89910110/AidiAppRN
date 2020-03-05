@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { View, Text, Image, FlatList, ScrollView } from 'react-native';
 import styles from './style.js';
 
 export default self => (

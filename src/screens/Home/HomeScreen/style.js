@@ -1,49 +1,85 @@
 import { StyleSheet } from 'react-native';
+import pxToDp from '../../../config/pxToDp';
 
 const styles = StyleSheet.create({
-    header: {
+    container: {
         backgroundColor: '#ffffff',
+        paddingHorizontal: pxToDp(15),
+        paddingVertical: pxToDp(7)
+    },
+    header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingTop: 15,
-        paddingHorizontal: 20,
+        alignItems: 'center'
+    },
+    header_left: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    loginBtn: {
+        width: pxToDp(78),
+        height: pxToDp(24),
+        color: '#ffffff',
+        backgroundColor: '#ED8506',
+        textAlign: 'center',
+        fontSize: pxToDp(14),
+        borderRadius: pxToDp(16)
+    },
+    welTitle: {
+        color: '#9b9b9b',
+        fontSize: pxToDp(14),
+        marginLeft: pxToDp(10)
     },
     searchInput: {
-        marginVertical: 15,
-        marginHorizontal: 20,
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        backgroundColor: '#f0f0f0',
+        marginVertical: pxToDp(14),
+        paddingVertical: pxToDp(5),
+        paddingHorizontal: pxToDp(20),
+        borderRadius: pxToDp(30),
+        backgroundColor: '#F2F3F7',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
+    searchKey: {
+        color: '#AEAEAE',
+        fontSize: pxToDp(14)
+    },
+    // 标签
     tabList: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+        marginVertical: pxToDp(15)
     },
     tabItem: {
-        marginLeft: 10,
-        marginBottom: 10
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center'
     },
+    tabImg: {
+        width: pxToDp(27),
+        height: pxToDp(27)
+    },
+    tabTitle: {
+        color: '#636363',
+        marginTop: pxToDp(6)
+    },
+    // 肿瘤专栏
     title: {
-        fontSize: 17,
-        fontWeight: 'bold'
+        fontSize: pxToDp(16),
+        fontWeight: 'bold',
+        borderLeftWidth: pxToDp(3),
+        borderLeftColor: '#ED8506',
+        paddingLeft: pxToDp(5),
+        marginVertical: pxToDp(14)
     },
     listBox: {
-        backgroundColor: '#ffffff', 
-        paddingVertical: 10, 
-        paddingHorizontal: 10, 
-        marginTop: 10
+        backgroundColor: '#ffffff',
+        paddingHorizontal: pxToDp(13)
     },
-    hotList: {
-        width: '100%',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center'
+    hotListImg: {
+        width: pxToDp(169),
+        height: pxToDp(110),
+        marginRight: pxToDp(9),
+        marginBottom: pxToDp(9)
     },
+    // 推荐阅读
     articleList: {
         width: '100%',
         padding: 10,

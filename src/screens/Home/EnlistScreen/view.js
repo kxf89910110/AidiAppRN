@@ -8,7 +8,12 @@ const poster = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resou
 export default self => (
     <View>
         {/* 海报 */}
-        <Image source={{uri: poster}} style={styles.poster} />
+        <TouchableOpacity onPress={() => self.navigation.navigate('招募详情', {
+                title: ''
+            })}
+        >
+            <Image source={{uri: poster}} style={styles.poster} />
+        </TouchableOpacity>
         {/* 标签导航 */}
         <FlatList
             showsHorizontalScrollIndicator = {false}
@@ -41,7 +46,12 @@ export default self => (
             keyExtractor={(item, index) => index}
             data={self.state.showList}
             renderItem={({item}) => 
-                <TouchableOpacity style={styles.card}>
+                <TouchableOpacity 
+                    style={styles.card}
+                    onPress={() => self.navigation.navigate('招募详情', {
+                        title: item.title
+                    })}
+                >
                     <Image source={{uri: item.projectPic}} style={styles.cardImage} />
                     <View style={styles.cardContent}>
                         <Text style={styles.cardTitle}>{item.title}</Text>
