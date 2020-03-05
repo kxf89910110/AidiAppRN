@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import styles from './style';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const poster = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/ptwz/putongwenzhen.jpg';
 const icon = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/ptwz/tw.png';
@@ -9,7 +8,9 @@ const icon = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resourc
 export default self => (
     <View>
         <Image source={{uri: poster}} style={styles.poster} />
-        <TouchableOpacity style={styles.inquiryCard}>
+        <TouchableOpacity 
+            style={styles.inquiryCard}
+            onPress={() => self.navigation.navigate('普通问诊')}>
             <View style={styles.inquiryContent}>
                 <Image source={{uri: icon}} style={styles.inquiryIcon} />
                 <View>

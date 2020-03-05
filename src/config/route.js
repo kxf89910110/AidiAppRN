@@ -8,6 +8,10 @@ import HomeScreen from "../screens/Home/HomeScreen";
 import EnlistScreen from "../screens/Home/EnlistScreen";
 import EnlistDetailsScreen from '../screens/Home/EnlistDetailsScreen';
 import InquiryScreen from '../screens/Home/InquiryScreen';
+import InquiryGeneralScreen from '../screens/Home/InquiryGeneralScreen';
+import PatientScreen from '../screens/Home/PatientScreen';
+import AddPatientScreen from '../screens/Home/AddPatientScreen';
+import InquiryDetailsScreen from '../screens/Home/InquiryDetailsScreen';
 import DoctorScreen from "../screens/Home/DoctorScreen";
 import ArticleScreen from "../screens/Home/ArticleScreen";
 
@@ -24,6 +28,10 @@ function HomeStackScreen() {
       <HomeStack.Screen name="招募中心" component={EnlistScreen} />
       <HomeStack.Screen name="招募详情" component={EnlistDetailsScreen} />
       <HomeStack.Screen name="肿瘤咨询" component={InquiryScreen} />
+      <HomeStack.Screen name="普通问诊" component={InquiryGeneralScreen} />
+      <HomeStack.Screen name="就诊人列表" component={PatientScreen} />
+      <HomeStack.Screen name="添加就诊人" component={AddPatientScreen} />
+      <HomeStack.Screen name="医生详情" component={InquiryDetailsScreen} />
       <HomeStack.Screen name="名医堂" component={DoctorScreen} />
       <HomeStack.Screen name="文章详情" component={ArticleScreen} />
     </HomeStack.Navigator>
