@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         borderLeftWidth: pxToDp(3),
         borderLeftColor: '#ED8506',
-        paddingLeft: pxToDp(5),
+        paddingLeft: pxToDp(8),
         marginVertical: pxToDp(14)
     },
     listBox: {

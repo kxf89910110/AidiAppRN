@@ -31,7 +31,7 @@ function HomeStackScreen() {
       <HomeStack.Screen name="普通问诊" component={InquiryGeneralScreen} />
       <HomeStack.Screen name="就诊人列表" component={PatientScreen} />
       <HomeStack.Screen name="添加就诊人" component={AddPatientScreen} />
-      <HomeStack.Screen name="医生详情" component={InquiryDetailsScreen} />
+      <HomeStack.Screen name="问诊详情" component={InquiryDetailsScreen} />
       <HomeStack.Screen name="名医堂" component={DoctorScreen} />
       <HomeStack.Screen name="文章详情" component={ArticleScreen} />
     </HomeStack.Navigator>

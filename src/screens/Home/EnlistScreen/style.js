@@ -3,7 +3,7 @@ import pxToDp from '../../../config/pxToDp';
 
 const styles = StyleSheet.create({
     poster: {
-        height: pxToDp(400)
+        height: pxToDp(200)
     },
     tabBox: {
         height: pxToDp(120),
