@@ -65,22 +65,26 @@ export default class EnlistScreen extends Component {
 
     // 获取招募数据
     async getEnlist() {
-        const REQUEST_URL = 'https://www.aidi-sz.com/';
-        try {
-            let response = await fetch(
-              REQUEST_URL + 'enlist.json',
-              {
-                method: 'GET'
-              }
-            );
-            let responseJson = await response.json();
-            this.setState({
-                enlist: responseJson
-            });
-            return responseJson;
-        } catch (error) {
-            console.error(error);
-        }
+      // 生产环境
+      // const res = await xgRequest.enlist();
+      // console.log(res)
+      // this.setState({ enlist: res });
+      const REQUEST_URL = 'https://www.aidi-sz.com/';
+      try {
+          let response = await fetch(
+            REQUEST_URL + 'enlist.json',
+            {
+              method: 'GET'
+            }
+          );
+          let responseJson = await response.json();
+          this.setState({
+              enlist: responseJson
+          });
+          return responseJson;
+      } catch (error) {
+          console.error(error);
+      }
     } 
 
     // 改变类目筛选数据

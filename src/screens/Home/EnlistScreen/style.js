@@ -3,55 +3,54 @@ import pxToDp from '../../../config/pxToDp';
 
 const styles = StyleSheet.create({
     poster: {
-        height: pxToDp(200)
+        height: pxToDp(170)
     },
     tabBox: {
-        height: pxToDp(120),
         backgroundColor: '#ffffff'
     },
     tab: {
-        width: pxToDp(165),
+        width: pxToDp(80),
+        height:  pxToDp(44),
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
     active: {
         color: '#EE6915',
-        fontSize: pxToDp(30),
+        fontSize: pxToDp(14),
         borderBottomWidth: 3,
         borderBottomColor: '#EE6915'
     },
     normal: {
-        fontSize: pxToDp(30),
+        fontSize: pxToDp(14),
     },
     card: {
         backgroundColor: '#ffffff',
-        height: pxToDp(250),
-        padding: pxToDp(20),
+        padding: pxToDp(17),
         marginBottom: pxToDp(1),
         flexDirection: 'row',
         alignItems: 'center'
     },
     cardImage: {
-        width: pxToDp(200),
-        height: pxToDp(200),
+        width: pxToDp(100),
+        height: pxToDp(100),
         marginRight: pxToDp(10)
     },
     cardContent: {
         width: '70%',
-        height: '100%',
         flexDirection: 'column',
         justifyContent: 'space-between'
     },
     cardTitle: {
-        fontSize: pxToDp(36)
+        fontSize: pxToDp(17)
     },
     star: {
-        marginRight: pxToDp(10)
+        marginVertical: pxToDp(5),
+        marginRight: pxToDp(5)
     },
     cardInfo: {
         color: '#d7d7d7',
-        fontSize: pxToDp(28),
+        fontSize: pxToDp(14),
     }
 }) 
 
