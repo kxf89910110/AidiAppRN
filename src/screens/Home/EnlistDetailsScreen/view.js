@@ -37,14 +37,14 @@ export default self => (
             }
         />
         <View style={styles.footer}>
-            <View style={styles.webView}>
+            {/* <View style={styles.webView}>
                 <View style={styles.agree}>
                     <Ionicons name='ios-radio-button-off' />
                     <Text>我已确认服务条款</Text>
                 </View>
                 <Text>阅读服务协议</Text>
-            </View>
-            <View style={styles.btn}>
+            </View> */}
+            <View style={styles.bottomBtnBox}>
                 <Button title='电话报名' color='orange'></Button>
                 <Button title='在线报名' color='orange'></Button>
             </View>

@@ -3,15 +3,15 @@ import pxToDp from '../../../config/pxToDp';
 
 const styles = StyleSheet.create({
     container: {
-        padding: pxToDp(40),
+        padding: pxToDp(20),
         backgroundColor: '#ffffff'
     },
     title: {
-        fontSize: pxToDp(30)
+        fontSize: pxToDp(15)
     },
     subtitle: {
-        fontSize: pxToDp(34),
-        marginTop: pxToDp(30)
+        fontSize: pxToDp(17),
+        marginTop: pxToDp(15)
     },
     content: {
         color: '#d7d7d7',
@@ -19,9 +19,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         width: '100%',
-        height: pxToDp(300),
-        position: 'absolute',
-        bottom: 0
+        height: pxToDp(150),
     },
     webView: {
         flexDirection: 'row',
@@ -32,8 +30,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center'
     },
-    btn: {
-        flexDirection: 'row'
+    bottomBtnBox: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     }
 })
 
