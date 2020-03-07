@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './style';
 
 const poster = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/ptwz/putongwenzhen.jpg';
 const icon = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/ptwz/tw.png';
 
 export default self => (
-    <View>
+    <ScrollView>
         <Image source={{uri: poster}} style={styles.poster} />
         <TouchableOpacity 
             style={styles.inquiryCard}
@@ -51,5 +51,5 @@ export default self => (
                 }
             />
         </View>
-    </View>
+    </ScrollView>
 )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './style';
 
 const checklist = [
@@ -22,7 +22,7 @@ const checklist = [
 ]
 
 export default self => (
-    <View>
+    <ScrollView>
         <View style={styles.container}>
             <View style={styles.doctorCard}>
                 <View style={styles.doctorCardHead}>
@@ -81,5 +81,5 @@ export default self => (
                 <Text style={styles.payBtn}>去支付</Text>
             </TouchableOpacity>
         </View>
-    </View>
+    </ScrollView>
 )

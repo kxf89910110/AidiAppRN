@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, TextInput, Picker, Button, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Picker, Button, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style.js';
 
 export default self => (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         {/* <View style={styles.textInput}>
           <Text>
             头像上传：
@@ -73,5 +73,5 @@ export default self => (
             onPress={() => self.register()}>
             <Text style={styles.btnTitle}>立即注册</Text>
         </TouchableOpacity>
-    </View>
+    </ScrollView>
 )

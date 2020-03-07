@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, ImageBackground, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView, ImageBackground, TouchableOpacity } from 'react-native';
 import styles from './style.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -27,7 +27,7 @@ const orderStatus = [
 ]
 
 export default self => (
-    <View>
+    <ScrollView>
        <ImageBackground 
         source={{uri: 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/gerenzhongxin/BG.jpg'}}
         style={styles.imageBackground}
@@ -72,5 +72,5 @@ export default self => (
             </TouchableOpacity>}
         />
       </View>
-    </View>
+    </ScrollView>
 );

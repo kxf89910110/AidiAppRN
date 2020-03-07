@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity, RefreshControl } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity, RefreshControl, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 
 const poster = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/service/shiguanlin.jpg';
 
 export default self => (
-    <View>
+    <ScrollView>
         {/* 海报 */}
         <TouchableOpacity onPress={() => self.navigation.navigate('招募详情', {
                 title: ''
@@ -80,5 +80,5 @@ export default self => (
                 </TouchableOpacity>
             }
         />
-    </View>
+    </ScrollView>
 )

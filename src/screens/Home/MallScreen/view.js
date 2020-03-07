@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 
 const poster = 'https://aidi-1300131487.cos.ap-guangzhou.myqcloud.com/aidi-resource/xiaochengxu/shangc/750.jpg';
 
 export default self => (
-    <View>
+    <ScrollView>
         <Image style={styles.poster} source={{uri: poster}} />
 
         <FlatList
@@ -29,5 +29,5 @@ export default self => (
                 </TouchableOpacity>
             }
         />
-    </View>
+    </ScrollView>
 )

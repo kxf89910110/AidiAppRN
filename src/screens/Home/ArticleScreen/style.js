@@ -1,50 +1,51 @@
 import { StyleSheet } from 'react-native';
+import pxToDp from '../../../config/pxToDp';
 
 const styles = StyleSheet.create({
     articleBox: {
-        marginTop: 10,
-        paddingVertical: 15,
-        paddingHorizontal: 10,
+        marginTop: pxToDp(10),
+        paddingVertical: pxToDp(15),
+        paddingHorizontal: pxToDp(10),
         backgroundColor: '#ffffff'
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 25
+        fontSize: pxToDp(25)
     },
     subtitle: {
         color: '#b7b7b7'
     },
     content: {
-        fontSize: 17,
-        marginVertical: 10
+        fontSize: pxToDp(17),
+        marginVertical: pxToDp(10)
     },
     card: {
         width: '100%', 
-        minHeight: 170
+        height: pxToDp(170)
     },
     cardInfo: {
         color: '#b7b7b7',
-        fontSize: 19
+        fontSize: pxToDp(19)
     },
     question: {
         color: '#6dacea',
-        fontSize: 17,
-        paddingVertical: 10,
-        borderBottomWidth: 2,
+        fontSize: pxToDp(17),
+        paddingVertical: pxToDp(10),
+        borderBottomWidth: pxToDp(1),
         borderBottomColor: '#f0f0f0'
     },
     answer: {
-        fontSize: 17,
-        paddingVertical: 10
+        fontSize: pxToDp(17),
+        paddingVertical: pxToDp(10)
     },
     total: {
-        fontSize: 17
+        fontSize: pxToDp(17)
     },
     warning: {
         color: '#b7b7b7',
         textAlign: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 80
+        paddingVertical: pxToDp(10),
+        paddingHorizontal: pxToDp(80)
     }
 })
 
