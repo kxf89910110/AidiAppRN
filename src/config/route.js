@@ -13,6 +13,7 @@ import PatientScreen from '../screens/Home/PatientScreen';
 import AddPatientScreen from '../screens/Home/AddPatientScreen';
 import InquiryDetailsScreen from '../screens/Home/InquiryDetailsScreen';
 import DoctorScreen from "../screens/Home/DoctorScreen";
+import MallScreen from "../screens/Home/MallScreen";
 import ArticleScreen from "../screens/Home/ArticleScreen";
 
 import UserScreen from "../screens/User/UserScreen";
@@ -33,6 +34,7 @@ function HomeStackScreen() {
       <HomeStack.Screen name="添加就诊人" component={AddPatientScreen} />
       <HomeStack.Screen name="问诊详情" component={InquiryDetailsScreen} />
       <HomeStack.Screen name="名医堂" component={DoctorScreen} />
+      <HomeStack.Screen name="健康商城" component={MallScreen} />
       <HomeStack.Screen name="文章详情" component={ArticleScreen} />
     </HomeStack.Navigator>
   );

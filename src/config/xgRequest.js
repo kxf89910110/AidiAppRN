@@ -5,5 +5,6 @@ export default {
     enlist: () => XgHttp("GET", "enlist.json", {}),
     doctorList: () => XgHttp("GET", "doctorList", {}),
     doctorDetails: id => XgHttp("GET", "doctorList/" + id, {}),
-    patientList: () => XgHttp("GET", "patientList", {})
+    patientList: () => XgHttp("GET", "patientList", {}),
+    productList: () => XgHttp("GET", "productList", {}),
 };
